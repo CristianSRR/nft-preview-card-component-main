@@ -1,0 +1,167 @@
+:root {
+  --soft-blue: #8bacda;
+  --cyan: #00fff7;
+  --very-dark-blue-main-BG: #0d192b;
+  --very-dark-blue-card-BG: #14253d;
+  --very-dark-blue-line: #2f415b;
+  --white: #ffffff;
+  --weights-300: 300;
+  --weights-400: 400;
+  --weights-600: 600;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Outfit", sans-serif;
+}
+
+.body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--very-dark-blue-main-BG);
+}
+
+.card {
+  max-width: 400px;
+  background: var(--very-dark-blue-card-BG);
+  margin: 0 2em;
+  padding: 1.5em 1.8em;
+  border-radius: 1em;
+}
+
+.card__img-container {
+  width: 100%;
+  aspect-ratio: 1;
+  background-image: url("images/image-equilibrium.jpg");
+  background-size: cover;
+  border-radius: 1em;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.card__img-container::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00fff780;
+  background-image: url("images/icon-view.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: opacity 500ms;
+  opacity: 0;
+}
+
+.card__title {
+  color: var(--white);
+  font-weight: var(--weights-600);
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  transition: color, 500ms;
+}
+
+.card__paragraph {
+  color: var(--soft-blue);
+  font-weight: var(--weights-300);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+.card__items {
+  display: flex;
+  justify-content: space-between;
+  font-weight: var(--weights-400);
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+}
+
+.card__eth,
+.card__days {
+  position: relative;
+}
+
+.card__eth {
+  color: var(--cyan);
+}
+
+.card__eth::before,
+.card__days::before {
+  vertical-align: middle;
+  margin-right: 0.4em;
+}
+
+.card__eth::before {
+  content: url("images/icon-ethereum.svg");
+}
+
+.card__days {
+  color: var(--soft-blue);
+}
+
+.card__days::before {
+  content: url("images/icon-clock.svg");
+}
+
+.card__line {
+  border: 1px solid var(--very-dark-blue-line);
+  border-radius: 1px;
+}
+
+.card__user {
+  display: flex;
+  align-items: center;
+}
+
+.card__avatar {
+  border: 1px solid var(--white);
+  border-radius: 50%;
+  width: 40px;
+  margin-right: 1em;
+}
+
+.card__user {
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
+  color: var(--soft-blue);
+}
+
+.card__name {
+  color: var(--white);
+  margin-left: 0.3em;
+  transition: color, 500ms;
+}
+
+@media (hover: hover) {
+  .card__img-container:hover::after {
+    opacity: 1;
+  }
+
+  .card__title:hover {
+    color: var(--cyan);
+  }
+
+  .card__name:hover {
+    color: var(--cyan);
+  }
+}
+
+@media not all and (hover: hover) {
+  .card__img-container:focus::after {
+    opacity: 1;
+  }
+
+  .card__title:focus {
+    color: var(--cyan);
+  }
+
+  .card__name:focus {
+    color: var(--cyan);
+  }
+}
